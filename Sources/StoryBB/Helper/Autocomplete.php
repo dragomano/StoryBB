@@ -31,6 +31,8 @@ class Autocomplete
 	 */
 	public static function init(string $type, string $target, int $maximum = 1, array $default = null)
 	{
+		global $context;
+
 		$searchTypes = self::get_registered_types();
 		if (!isset($searchTypes[$type]))
 		{
@@ -41,6 +43,7 @@ class Autocomplete
 
 		// First, set up the generic stuff.
 		loadJavaScriptFile('select2/select2.min.js', ['minimize' => false, 'default_theme' => true], 'select2');
+		loadJavaScriptFile('select2/i18n/' . substr($context['locale'], 0, 2) . '.js', ['minimize' => false, 'default_theme' => true], 'select2_lang');
 		loadCSSFile('select2.min.css', ['minimize' => false, 'default_theme' => true], 'select2');
 
 		if (!empty($default))

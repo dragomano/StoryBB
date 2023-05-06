@@ -71,6 +71,7 @@ function Post($post_errors = [])
 	else
 	{
 		loadJavaScriptFile('select2/select2.min.js', ['minimize' => false, 'default_theme' => true], 'select2');
+		loadJavaScriptFile('select2/i18n/' . substr($context['locale'], 0, 2) . '.js', ['minimize' => false, 'default_theme' => true], 'select2_lang');
 		loadCSSFile('select2.min.css', ['minimize' => false, 'default_theme' => true], 'select2');
 	}
 
